@@ -1,5 +1,7 @@
 import { Fragment, useEffect, useState } from 'react'
 
+import EditToDo from './EditToDo'
+
 export default function ListToDos() {
   const [todos, setTodos] = useState([])
 
@@ -31,7 +33,7 @@ export default function ListToDos() {
 
   return (
     <Fragment>
-      <table class="table mt-5 text-center">
+      <table className="table mt-5 text-center">
         <thead>
           <tr>
             <th>Description</th>
@@ -48,7 +50,9 @@ export default function ListToDos() {
           {todos.map((todo) => (
             <tr key={todo.todo_id}>
               <td>{todo.description}</td>
-              <td>Edit</td>
+              <td>
+                <EditToDo todo={todo}/>
+              </td>
               <td>
                 <button
                   className="btn btn-danger"
